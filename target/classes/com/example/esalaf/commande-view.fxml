@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<VBox prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.esalaf.CommandeController" style="-fx-background-color: linear-gradient(to bottom right, #FFFFFF, #F1F8E9); -fx-font-family: Arial, sans-serif; " >
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+
+    <VBox style="-fx-background-color: #E3F2FD; -fx-padding: 20px; -fx-border-color: #BBDEFB; -fx-border-width: 2px; -fx-border-radius: 10px;">
+        <Label text="Id_client:" style="-fx-font-size: 14px;" />
+        <TextField fx:id="id_client" style="-fx-font-size: 14px; -fx-background-color: #B3E5FC; -fx-border-radius: 5px; -fx-padding: 5px;" />
+        <Label text="Id_prod:" style="-fx-font-size: 14px;" />
+        <TextField fx:id="id_prod" style="-fx-font-size: 14px; -fx-background-color: #B3E5FC; -fx-border-radius: 5px; -fx-padding: 5px;" />
+        <Label text="Id_credit:" style="-fx-font-size: 14px;" />
+        <TextField fx:id="id_credit" style="-fx-font-size: 14px; -fx-background-color: #B3E5FC; -fx-border-radius: 5px; -fx-padding: 5px;" />
+        <Label text="Date commande:" style="-fx-font-size: 14px;" />
+        <TextField fx:id="date_commande" style="-fx-font-size: 14px; -fx-background-color: #B3E5FC; -fx-border-radius: 5px; -fx-padding: 5px;" />
+        <Label text="Montant:" style="-fx-font-size: 14px;" />
+        <TextField fx:id="montant_total" style="-fx-font-size: 14px; -fx-background-color: #B3E5FC; -fx-border-radius: 5px; -fx-padding: 5px;" />
+        <Label text="Statut:" style="-fx-font-size: 14px;" />
+        <TextField fx:id="statut" style="-fx-font-size: 14px; -fx-background-color: #B3E5FC; -fx-border-radius: 5px; -fx-padding: 5px;" />
+    </VBox>
+
+
+    <VBox spacing="10" alignment="CENTER_LEFT" style="-fx-background-color: #E3F2FD; -fx-padding: 10px;">
+        <HBox spacing="10" alignment="CENTER_LEFT">
+            <Button onAction="#onSaveButtonClick" text="Enregistrer" fx:id="ok" style="-fx-background-color: #21F6F3; -fx-text-fill: #ffffff; -fx-font-size: 14px; -fx-font-weight: bold;"/>
+            <Button onAction="#onUpdateButtonClick" text="Mettre à jour" fx:id="o" style="-fx-background-color: #1976D2; -fx-text-fill: #ffffff; -fx-font-size: 14px; -fx-font-weight: bold;"/>
+            <Button onAction="#onDeleteButtonClick" text="Supprimer" fx:id="k" style="-fx-background-color: #1E90FF; -fx-text-fill: #ffffff; -fx-font-size: 14px; -fx-font-weight: bold;"/>
+            <Button onAction="#onGetOneButtonClick" text="Obtenir" fx:id="r" style="-fx-background-color: #6495ED; -fx-text-fill: #ffffff; -fx-font-size: 14px; -fx-font-weight: bold;"/>
+            <Button onAction="#onClearInput" text="Clear" fx:id="c" style="-fx-background-color:#757faa; -fx-text-fill: #ffffff; -fx-font-size: 14px; -fx-font-weight: bold;"/>
+        </HBox>
+    </VBox>
+
+
+    <ScrollPane fitToWidth="true">
+        <VBox spacing="10" alignment="CENTER_LEFT" style="-fx-background-color: #B0E0E6; -fx-padding: 20px;">
+            <Label text="Liste des commandes" style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
+            <TableView fx:id="mytab" style="-fx-background-color: #ffffff; -fx-border-color: #0000FF; -fx-border-width: 3px;" prefWidth="1200" prefHeight="400">
+                <columns>
+                    <TableColumn prefWidth="100.0" text="ID" fx:id="col_id" />
+                    <TableColumn prefWidth="200.0" text="ID_CLIENT" fx:id="col_id_client" />
+                    <TableColumn prefWidth="200.0" text="ID_PROD" fx:id="col_id_prod" />
+                    <TableColumn prefWidth="200.0" text="ID_CREDIT" fx:id="col_id_credit" />
+                    <TableColumn prefWidth="200.0" text="DATE COMMANDE" fx:id="col_date_commande" />
+                    <TableColumn prefWidth="200.0" text="MONTANT TOTALE" fx:id="col_montant_total" />
+                    <TableColumn prefWidth="200.0" text="STATUT" fx:id="col_statut" />
+                </columns>
+            </TableView>
+        </VBox>
+    </ScrollPane>
+    <HBox spacing="10" alignment="CENTER_LEFT" style="-fx-background-color: #ffffff;">
+        <Button fx:id="viewProductsBtn"
+                text="Voir les produits"
+                onAction="#onViewProductsButtonClick"
+                style="-fx-background-color: #ADD8E6;
+                   -fx-text-fill: #000000;
+                   -fx-font-size: 16px;
+                   -fx-font-weight: bold;
+                   -fx-padding: 10px 20px;" />
+        <Button fx:id="viewCreditsBtn"
+                text="Voir les crédits"
+                onAction="#onViewCreditsButtonClick"
+                style="-fx-background-color: #c8d2ff;
+               -fx-text-fill: #000000;
+               -fx-font-size: 16px;
+               -fx-font-weight: bold;
+               -fx-padding: 10px 20px;" />
+        <Button fx:id="viewClientsBtn"
+                text="Voir les clients"
+                onAction="#onViewClientsButtonClick"
+                style="-fx-background-color: #c8d2ff;
+               -fx-text-fill: #000000;
+               -fx-font-size: 16px;
+               -fx-font-weight: bold;
+               -fx-padding: 10px 20px;" />
+    </HBox>
+</VBox>
